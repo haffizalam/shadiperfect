@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+<style type="text/css">
+
+    body {
+    margin: 0;
+    padding: 0;
+    background-color:#F8F9F9;
+  }
+   
+    .card-img-top
+    {
+        width:200px;
+        height: 200px;
+        box-shadow: 0px 10px 30px 0px blue;
+        border-radius:25px;
+
+    }
+ 
+    .details
+    {
+        color: crimson;
+        font-size: 18px;
+        
+    }
+    
+    .heading
+    {
+        font-size: 18px;
+        color: #9B59B6;
+    }
+
+    .edit
+    {
+      color:white;
+      background-color: crimson;
+      padding:10px 10px;
+
+
+    }
+
+    .edit:hover
+    {
+      text-decoration: none;
+      color: white;
+      background-color:#9B59B6;
+
+    }
+
+    .col-md-8
+  {
+    
+    margin-bottom: 50px;
+    box-shadow: 0px 10px 30px 0px rgb(172, 17, 235);
+    border-radius: 10px;
+    background-color: white;
+    
+
+  }
+  h4
+  {
+    color:white;
+  }
+  
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+             <h4>&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/app01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li  class="menu"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> </li>
+
+			<li class="menu"><a href="/app01/add_data/" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Complete your Profile</a></li>
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8 offset-md-2">
+    			<h5>Personal Details</h5>
+                {% for i in udata %}
+                     
+                       <img class="card-img-top" src="{{ i.pic.url }}" alt="profile_pic">
+                    
+                     {% endfor %}
+    			<table class="table">
+                     
+                    <tr>
+                        <td class="heading">First Name</td>
+                        <td class="details">{{request.user.first_name}}</td>
+                        <td class="heading"> Last Name</td>
+                        <td class="details">{{request.user.last_name}}</td>
+
+                    </tr> 
+                     {% for i in items %}      
+                    <tr>
+                        <td class="heading">Gmail</td>
+                        <td class="details">{{request.user.email}}</td>
+                        <td class="heading">Mobile No.</td>
+                        <td class="details">{{i.mobile}}</td>
+
+                    </tr> 
+                          
+
+                             
+                    <tr>
+                        <td class="heading">DOB</td>
+                        <td class="details">{{i.dob}}</td>
+                        
+
+                    </tr> 
+                     {% endfor %}        
+                </table>
+
+
+
+            
+    			
+    		</div>
+    		
+    	</div>
+
+        
+    </div>
+    <div class="container">
+      <div class="row">
+            <div class="col-md-8 offset-md-2">
+               <h5>Family & other details</h5>
+               <table class="table">
+                {% for i in udata %}
+                <tr>
+                  <td> <img class="card-img-top" src="{{ i.pic.url }}" alt="profile_pic"></td>
+                </tr>
+                 <tr>
+                  
+                   <td class="heading">Fathers Name</td>
+                    
+                    <td class="details">{{i.faname}}</td>
+                    <td class="heading">Motherss Name</td>
+                    
+                    <td class="details">{{i.mname}}</td>
+                 </tr>
+                  <tr>
+                     <td class="heading">Gender</td>
+                    
+                    <td class="details">{{i.gender}}</td>
+
+                    <td class="heading">Marital Status</td>
+                    <td class="details">{{i.mstatus}}</td>
+                  
+                   
+                 </tr>
+                 <tr>
+                    <td class="heading">Height</td>
+                    <td class="details">{{i.height}}Feet</td>
+                 </tr>
+
+                 
+                   
+                  <tr>
+                    <td class="heading">Profession</td>
+                    <td class="details">{{i.profession}}</td>
+                    <td class="heading">Qualification</td>
+                    <td class="details">{{i.qualification}}</td>
+                 </tr>
+
+                 <tr>
+                    <td class="heading">Religion</td>
+                    <td class="details">{{i.religion}}</td>
+                    <td class="heading">MotherTongue</td>
+                    <td class="details">{{i.mothertongue}}</td>
+                 </tr>
+
+                 <tr>
+                    <td class="heading">City Name</td>
+                    <td class="details">{{i.cityname}}</td>
+                    <td class="heading">District</td>
+                    <td class="details">{{i.dist}}</td>
+                 </tr>
+
+
+                 <tr>
+                  <td class="heading">Postal code</td>
+                  <td class="details">{{i.pin}}</td>
+                   
+                 </tr>
+
+                 <tr>
+                  <td class="heading">Hobbies</td>
+                  <td class="details">{{i.hobbies}}</td>
+                   
+                 </tr>
+                
+                 <tr><td><a href="{% url 'app01:update_pro' id=i.user_id %}" class="edit">Update</a></td></tr>
+                 {% endfor %}
+               </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+       
+</body>
+</html>

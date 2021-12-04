@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+
+
+</head>
+<style type="text/css">
+	.col-md-6 .form-control
+	{
+		color: crimson;
+		background-color: white;
+		
+	}
+  
+	 img
+	{
+		border-radius: 20px;
+		border:1px solid crimson;
+		box-shadow: 0px 10px 30px 0px rgb(172, 17, 235);
+	}
+    .send_btn
+    {
+        background-color: crimson;
+        color: white;
+        padding: 10px;
+        margin:25px;
+    
+    }
+    .send_btn:hover
+    {
+        text-decoration: none;
+        color:black;
+    }
+    h4
+    {
+        color: white;
+    }
+</style>
+
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+             <h4>&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/app01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li  class="menu"><a href="/app01/myprofile/"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> </li>
+
+			
+			<li class="menu"><a href="/app01/add_data/" ><i class="fa fa-users" aria-hidden="true"></i>Complete your Profile</a></li>
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+    {% for i in pro_data %}
+    <div class="container">
+    	<img src="{{i.pic.url}}" width="200px" height="200px">
+    			<h4 class="ml-4">{{i.First_name}} {{i.Last_name}}</h4>
+    	<div class="row">
+
+    		<div class="col-md-6">
+    			
+    			
+    		
+    			<label>Father's Name</label><input type="text" disabled="" value="{{i.faname}}" name="" class="form-control">
+
+    			<label>Mother's Name</label>
+    			<input type="text" disabled="" value="{{i.mname}}" name="" class="form-control">
+
+    			<label>Gender Name</label>
+    			<input type="text" disabled="" value="{{i.gender}}" name="" class="form-control">
+    			<label>Marital Status</label>
+    			<input type="text" disabled="" value="{{i.mstatus}}" name="" class="form-control">
+
+    			<label>Height</label>
+    			<input type="text" disabled="" value="{{i.height}} cm" name="" class="form-control">
+
+    			<label>Hobbies</label>
+    			<input type="text" disabled="" value="{{i.hobbies}}" name="" class="form-control">
+
+    			
+    		</div>
+    		<div class="col-md-6">
+    			<label>Profession</label>
+    			<input type="text" disabled="" value="{{i.profession}}" name="" class="form-control">
+
+    			<label>Qualification</label>
+    			<input type="text" disabled="" value="{{i.qualification}}" name="" class="form-control">
+
+    			<label>Religion</label>
+    			<input type="text" disabled="" value="{{i.religion}}" name="" class="form-control">
+
+    			<label>Mother Tongue</label>
+    			<input type="text" disabled="" value="{{i.mothertongue}}" name="" class="form-control">
+
+    			<label>City</label>
+    			<input type="text" disabled="" value="{{i.cityname}}" name="" class="form-control">
+
+    			<label>District</label>
+    			<input type="text" disabled="" value="{{i.dist}}" name="" class="form-control">
+                
+    			
+    		</div>
+            <a href="" class="send_btn">Ask for Mobile No.</a>
+    	</div>
+    	
+    </div>
+    {% endfor %}
+
+</body>
+</html>

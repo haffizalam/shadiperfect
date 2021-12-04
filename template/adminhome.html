@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+
+
+</head>
+<style type="text/css">
+	.col-md-6
+	{
+		background-color:black;
+		color: white;
+		text-align: center;
+		box-shadow:2px 2px 2px 3px crimson;
+	}
+	.list-group-item
+	{
+		color: crimson;
+		background-color:#F0F3F4;
+		border:none;
+	}
+	.list-group-item:hover
+	{
+		text-decoration: none;
+		border:1px solid #A569BD;
+	}
+	.btn
+	{
+		color: white;
+		font-size: 18px;
+	}
+	.btn:hover,
+	.btn:focus
+	{
+		color:#ECF0F1;
+		border:1px solid white;
+		outline: none;
+	}
+
+	table th
+  {
+    background-color:#C39BD3;
+  }
+
+  table td
+  {
+  	background-color:#1ABC9C;
+  }
+  h4
+  {
+  	color:white;
+  }
+  .bottom
+  {
+    float:right;
+    margin-right: 20px;
+    background-color:crimson;
+    border-radius:50%;
+
+    animation: uparrow 1s infinite alternate;
+
+  }
+
+  @keyframes uparrow {
+    to{margin-top:100px;}
+    from{margin-top:20px;}
+  }
+   .bottom i
+   {
+    color:#F0F3F4;
+    font-size: 34px;
+
+   }
+
+</style>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+             <h4>&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/admin01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li class="menu"><a href="/admin01/admin_sign/" ><i class="fa fa-user-plus" aria-hidden="true"></i></i>Add new Admin</a> </li>
+			<li class="menu"><a href="/admin01/view_fbk/" >view feedback</a> </li>
+
+			
+			
+		   <li><div class="dropdown">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-plus" aria-hidden="true"></i>Add
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/admin01/religion/">Add Religion</a>
+          <a class="dropdown-item" href="/admin01/city/">Add City</a>
+          <a class="dropdown-item" href="/admin01/lang/">Add MotherTongue</a>
+          <a class="dropdown-item" href="/admin01/add_story/">Add Successful story</a>
+        
+        </div>
+        </div>
+    	</li>
+			
+			
+			
+           
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+    	
+       <div class="container">
+       
+		<div class="row mb-4">
+			<div class="col-md-6">
+				<h2>Total Users:{{count}}</h2>
+				
+			</div>
+			<div class="col-md-6">
+				<h2>Active Users:{{active}}</h2>
+				
+			</div>
+			
+		</div> 
+		
+       </div>
+       <table class="table" border="1px">
+      	<tr>
+      	<th>First Name</th>
+      	<th>Last Name</th>
+      	<th>Username</th>
+      	<th>Email</th>
+      </tr>
+      {% for i in users%}
+      <tr>
+      	<td>{{i.first_name}}</td>
+      	<td>{{i.last_name}}</td>
+      	<td>{{i.username}}</td>
+      	<td>{{i.email}}</td>
+      </tr>
+
+      {% endfor %}
+      </table>
+      
+      
+       <div class="bottom">
+          <a href="/admin01/home/"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+       </div
+        
+    	
+</body>
+</html>

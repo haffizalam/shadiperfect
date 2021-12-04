@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Perfectshadi.com</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+<style type="text/css">
+  
+  .sub_head
+  {
+  color: blue;
+  text-align: center;
+  font-size: 24px;
+  }
+  .row
+  {
+    
+    padding: 0;
+    margin:0;
+  }
+  
+  .check
+  {
+    padding: 0px;
+    background-color: red;
+  }
+  
+  .carousel-caption h4
+  {
+    background-color: white;
+    color: black;
+  }
+  .carousel-caption  p
+  {
+    background-color: crimson;
+    color: white;
+  }
+  .w-100
+  {
+    box-shadow: 0px 10px 30px 0px blue;
+  }
+  .bottom
+  {
+    float:right;
+    margin-right: 20px;
+    background-color:crimson;
+    border-radius:50%;
+
+    animation: uparrow 1s infinite alternate;
+
+  }
+
+  @keyframes uparrow {
+    to{margin-top:100px;}
+    from{margin-top:20px;}
+  }
+   .bottom i
+   {
+    color:#F0F3F4;
+    font-size: 34px;
+
+   }
+   .title-story
+   {
+    color:#9B59B6;
+    border-bottom:2px solid #E74c3c;
+   }
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li  class="menu"><a href="#about"><i class="fa fa-info-circle" aria-hidden="true"></i>About</a> </li>
+			<li class="menu"><a href="#service" ><i class="fa fa-shopping-basket" aria-hidden="true"></i>Service</a> </li>
+			
+			<li class="menu"><a href="#form" ><i class="fa fa-unlock-alt" aria-hidden="true"></i>Signup</a> </li>
+			<li class="menu"><a href="#contact" ><i class="fa fa-phone-square" aria-hidden="true"></i>Contact us</a> </li>
+      <!--<li class="menu"><a href="/admin_sign/" >Admin signup</a> </li>!-->
+
+      
+        </ul>
+        </div>
+    </nav>
+
+        <section class="home" id="home">
+         <div class="container-fluid">
+         <div class="row">
+         
+        <div class="col-md-12">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item  active">
+      <img src="{% static 's33.jpg' %}" class="d-block w-100" src="..." alt="First slide" height="650px">
+      <div class="carousel-caption">
+            <h4></h4>
+            <p></p>
+          </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 's222.jpg' %}" class="d-block w-100" src="..." alt="Second slide"
+      height="650px">
+      <div class="carousel-caption">
+            <h4></h4>
+            <p></p>
+          </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 's44.jpg' %}" class="d-block w-100" src="..." alt="Third slide" height="650px">
+      <div class="carousel-caption">
+            <h4></h4>
+            <p></p>
+          </div>
+    </div>
+     <div class="carousel-item">
+      <img src="{% static 's55.jpg' %}" class="d-block w-100" src="..." alt="Fourth slide" height="650px">
+      <div class="carousel-caption">
+            <h4></h4>
+            <p></p>
+          </div>
+    </div>
+     <div class="carousel-item">
+      <img src="{% static 's66.jpg' %}" class="d-block w-100" src="..." alt="Fifth slide"  height="650px">
+      <div class="carousel-caption">
+            <h4></h4>
+            <p></p>
+          </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+        </div>
+      </div>
+    </div>
+    	
+    	    
+        </section>
+          <section id="form"><!--form-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+          <div class="login-form"><!--login form-->
+            <h2>Login to your account</h2>
+            <form method="Post" action="/login/">
+              {% csrf_token %}
+              <input type="text" placeholder="username" name="luname" />
+              <input type="password" placeholder="password" name="lpwd" id="spwd" />
+              <p style="color: red;">{{msg}}</p>
+              <span>
+                <input type="checkbox" class="checkbox" onclick="check()"> 
+                Show Password
+              </span>
+              <button type="submit" class="btn btn-default">Login</button>
+            </form>
+          </div><!--/login form-->
+        </div>
+        <div class="col-sm-1">
+          <h2 class="or">OR</h2>
+        </div>
+        <div class="col-sm-4">
+          <div class="signup-form"><!--sign up form-->
+            <h2>New User Signup!</h2>
+            <form method="Post" action="/form2/">
+              {% csrf_token %}
+  <input type="text" placeholder="First Name" name="fname" required="" id="fname" onBlur="fname_validation();"/>
+              <span id="fn"></span>
+              <input type="text" placeholder="Last Name" required="" name="lname" id="lname" onBlur="lname_validation();"/>
+              <span id="ln"></span>
+              <input type="text" placeholder="Userame" required="" name="uname" id="uname" onBlur="uname_validation();" />
+              <span id="un"></span>
+              <input type="text" placeholder="mobile" required="" name="mobile" id="mobile" onBlur="mobile_validation();"/>
+              <span id="mob"></span>
+              <input type="email" placeholder="Email Address" required="" name="email" id="email" onBlur="email_validation();" />
+              <span id="em"></span>
+
+              <input type="password" placeholder="Password" required="" name="pwd" id="pwd" onBlur="passwd_validation();" />
+              <span id="erpwd"></span>
+              
+              <select class="form-control" id="gen" required="">
+                <option>Select gender</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
+              <br>
+              <label>Date of Birth</label><input type="date" required="" name="dob" id="dob" onBlur="dob_validation();" >
+
+              <span id="db"></span>
+               
+              <input type="text" value="user"  hidden="" name="utype">
+              
+              <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#exampleModal1">Signup</button>
+            </form>
+          </div><!--/sign up form-->
+        </div>
+      </div>
+    </div>
+  </section><!--/form-->
+             
+
+        <section class="sec2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12"><h1 class="h1">Find best match for you here...</h1></div>
+              <div class="col-sm-4">
+
+                <div class="pro">
+                  <img src="{% static 'signup.png' %}" class="proimg">
+                  <h1 class="sub_head">signup</h1>
+                </div>
+                
+              </div>
+               <div class="col-sm-4">
+
+                <div class="pro">
+                  <img src="{% static 'connect.png' %}" class="proimg">
+
+                </div>
+                
+              </div>
+              <div class="col-sm-4">
+
+                <div class="pro">
+                  <img src="{% static 'interact.png' %}" class="proimg">
+                  <h1 class="sub_head">interact</h1>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        	
+        </section>
+        <section class="service">
+          <div class="container">
+         <div class="row">
+        <div class="col-md-12"><h2 class="title-story text-center">our success stories..</h2></div>
+        <div class="col-md-12">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
+    <li data-target="#carousel" data-slide-to="3"></li>
+    <li data-target="#carousel" data-slide-to="4"></li>
+    </ol>
+   
+  <div class="carousel-inner">
+    
+    <div class="carousel-item active">
+      
+      <img src="{% static 's33.jpg' %}" class=" w-100" alt="First slide" height="500px">
+      <div class="carousel-caption">
+            <h4>Success Story befins from here..</h4>
+            <p></p>
+          </div>
+      
+    </div>
+    {% for i in stry %}
+    <div class="carousel-item">
+      
+      <img src="{{ i.img.url }}" class="w-100" alt="First slide" height="500px">
+      <div class="carousel-caption">
+            <h4>{{i.bride}} & {{i.bridegroom}}</h4>
+            <p></p>
+          </div>
+      
+    </div>
+    {% endfor %}
+    
+    
+    
+    
+
+  </div>
+
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+        </div>
+      </div>
+    </div>
+
+          
+       </section>
+       <section class="about" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="mt-5 mb-5">Perfectshadi.com</h4>
+              <p class=" mb-5">
+                Perfectshadi.com is one of the leading and most trusted matrimony websites in India. Making happy marriages happen since 2016, Perfectshadi understands the importance of choosing the right partner for marriage, especially in the Indian cultural setup. It believes in providing the most secure and convenient matchmaking experience to all its members by ensuring 100% screening,exclusive privacy options, photo protection features and verification of phone numbers and more information. While the online matrimonial site connects millions of people directly, Perfectshadi also maintains a dedicated Customer Care team and offers offline Match Point Centers across the country, for deeper and personal interaction with prospective brides, grooms and /or families.
+
+               
+              
+            </div>
+          </div>
+          
+        </div>
+          
+       </section>
+       <section class="contact" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="title text-center">Get In Touch</h2>
+              <form method="Post" action="/contact/">
+                {% csrf_token %}
+              <input type="text" name="name" class="form-control mt-3" placeholder="Name">
+              <input type="text" name="email" class="form-control mt-3" placeholder="E-mail">
+              <textarea class="form-control mt-3" name="text" rows="8" placeholder="Your Message Here">
+                
+              </textarea>
+              <input type="submit" name="submit" class="btn  pull-right mt-3" value="Submit">
+              </form>
+            </div>
+            <div class="col-md-6">
+              <h2 class="title text-center">Contact Info</h2>
+              <address>
+              <p>Perfectshadi.com</p>
+              <p>Zone 2 MP nagar, Bhopal</p>
+              <p>Madhya Pradesh India</p>
+              <p>Mobile: +91 6260 123 321</p>
+              <p>Fax: 234-567-8901</p>
+              <p>Email: info@perfectshadi.com</p>
+              </address>
+              <div class="social">
+                <h5 class="title text-center">Follow us on</h5>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+              </ul>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+         
+       </section>
+       <div class="bottom">
+          <a href="#home"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+       <!-- footer !-->
+       <section class="footer">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col-md-4">
+
+              <ul class="mt-3">
+                <li><h5>Service</h5></li>
+                <li>Match makings</li>
+                <li>Online help</li>
+                <li>Marriage Counseling</li>
+                <li>Faq</li>
+              </ul>
+              
+            </div>
+             <div class="col-md-4">
+              <ul class="mt-3">
+                <li><h5>Policies</h5></li>
+                <li>Term of use</li>
+                <li>Privacy Policy</li>
+                <li>Match Policy</li>
+                <li>Client Policy</li>
+              </ul>
+              
+            </div>
+             <div class="col-md-4">
+              <ul class="mt-3">
+                <li><h5>Information</h5></li>
+                <li>About us</li>
+                <li>Awards</li>
+                <li>Contact Us</li>
+                <li>Register free</li>
+                <li>Member login</li>
+              </ul>
+              
+            </div>
+
+          </div>
+          
+        </div>
+         <div class="card-footer" style="color:#979A9A">Design by HFZ</div>
+       </section>
+        
+
+<!--<script type="text/javascript">
+	function showclock()
+	{
+		var c= new Date()
+		var d=c.getDate()
+		var h=c.getHours()
+		var m=c.getMinutes()
+		var s=c.getSeconds()
+		var showtime=String(h)+":"+String(m)+":"+String(s)+":"
+		console.log(showtime)
+		if(h<12)
+		{
+		   document.getElementById('clock').innerHTML=showtime+'AM'	
+		} 
+		else
+		{
+			document.getElementById('clock').innerHTML=showtime+'PM'	
+		}
+        }
+		setInterval(showclock,1000)
+		
+	
+</script>!-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      {% if messages %}
+        {% for i in messages %}
+          <p style="color:red">{{i}}</p>
+        {% endfor %}
+      {% endif %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<script type="text/javascript" src="{% static 'index.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+<style type="text/css">
+  .signlogo
+  {
+    background-color:#2C3E50;
+    margin-left:0px;
+    margin-top:50px;
+    width: 400px;
+    height: 400px;
+    border-radius:50%;
+    
+  }
+  .btn
+  {
+    color: white;
+    font-size: 18px;
+  }
+  .btn:hover,
+  .btn:focus
+  {
+    color:#ECF0F1;
+    border:1px solid white;
+    outline: none;
+  }
+  
+
+</style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.Com</h3>
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/admin01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li class="menu"><a href="/admin01/admin_sign/" ><i class="fa fa-user-plus" aria-hidden="true"></i></i>Add new Admin</a> </li>
+       <li><div class="dropdown">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/admin01/religion/" class="btn btn-primary">Add Religion</a>
+          <a class="dropdown-item" href="/admin01/city/">Add City</a>
+          <a class="dropdown-item" href="/admin01/lang/">Add MotherTongue</a>
+        
+        </div>
+        </div>
+      </li>
+      
+      <li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+
+			
+        </ul>
+        </div>
+    </nav>
+
+        <section id="form"><!--form-->
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-sm-4 col-sm-offset-1">
+          <img src="{% static 'signup2.png' %}" class="signlogo">
+        </div>
+        <div class="col-sm-1">
+         
+        </div>
+        <div class="col-sm-4">
+          <div class="signup-form"><!--sign up form-->
+            <h2>Create New Admin!</h2>
+            <form method="Post">
+              {% csrf_token %}
+            <input type="text" placeholder="First Name" name="fname" id="fname" onBlur="fname_validation();"/>
+              <span id="fn"></span>
+              <input type="text" placeholder="Last Name" name="lname" id="lname" onBlur="lname_validation();"/>
+              <span id="ln"></span>
+              <input type="text" placeholder="Userame" name="uname" id="uname" onBlur="uname_validation();" />
+              <span id="un"></span>
+              <input type="text" placeholder="mobile" name="mobile" id="mobile" onBlur="mobile_validation();"/>
+              <span id="mob"></span>
+              <input type="email" placeholder="Email Address" name="email" id="email" onBlur="email_validation();" />
+              <span id="em"></span>
+
+              <input type="password" placeholder="Password" name="pwd" id="pwd" onBlur="passwd_validation();" />
+              <span id="erpwd"></span>
+              <br>
+              <label>Date of Birth</label><input type="date" name="dob" id="dob" onBlur="dob_validation();" >
+
+              <span id="db"></span>
+               
+              <input type="text" value="admin" hidden="" name="utype">
+              
+              <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter">Signup</button>
+            </form>
+          </div><!--/sign up form-->
+        </div>
+      </div>
+    </div>
+  </section><!--/form-->
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+      
+          <h4>Successfully Registered Account...</h4>
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{% static 'index.js' %}"></script>
+</body>
+</html>

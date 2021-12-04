@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+<style type="text/css">
+  body
+  {
+    margin: 0;
+    padding: 0;
+    background-color:#F8F9F9;
+  }
+  .col-md-8
+  {
+    
+    margin-bottom: 50px;
+    box-shadow: 0px 10px 30px 0px rgb(172, 17, 235);
+    border-radius: 10px;
+    background-color: #EC7063;
+
+  }
+  .mt-4
+  {
+    background-color:crimson;
+    color: white;  }
+ h4
+  {
+    color: white;
+  }
+
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+             <h4>&nbsp;<i class="fa fa-user-circle-o" aria-hidden="true"></i> {{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/app01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			
+      <li  class="menu"><a href="/app01/myprofile/"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> </li>
+			
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    	 <div class="row">
+            <div class="col-md-8 offset-md-2">
+               <h3>Family & other details</h3>
+              <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <input type="file" name="pic" required="">
+                <br>
+              
+                <label class="heading">First Name</label>
+                <input type="text" name="fn" value="{{request.user.first_name}}" class="form-control">
+                 <label class="heading">Last Name</label>
+                <input type="text" name="ln" value="{{request.user.last_name}}" class="form-control">
+              
+                <label class="heading">Father's Name</label>
+                <input type="text" name="faname" required="" placeholder="Father's Name" class="form-control" id="faname" onBlur="fathername_validation();">
+                <span id="fnm"></span><br>
+
+                <label class="heading">Mother's Name</label>
+                <input type="text" name="mname" required="" placeholder="Mother's Name" class="form-control" id="mname" onBlur="mothername_validation();">
+                <span id="mnm"></span><br>
+
+
+               <label class="heading">Gender</label> 
+               Male
+               <input type="radio" name="gender" value="male">
+               female
+               <input type="radio" name="gender" value="female">
+              <br>
+              <label>Age</label>
+              {% for i in mage %}
+              <input type="text"  name="ag" class="form-control" value="{{i}}">
+              {% endfor %}
+               <br>
+               <label class="heading">Marital Status</label>
+
+               <select name="mstatus" class="form-control" required="">
+                   <option value="Never Married">Never Married</option>
+                   <option value="Divorced">Divorced</option>
+                   <option value="widow">Widow</option>
+               </select>
+               <!---Height-!-->
+              <label class="heading">Height (in Feet)</label>
+               <input type="text" name="height" class="form-control" required="" id="ht"
+               onBlur="height_validation();">
+               <span id="hei"></span><br>
+
+               <label class="heading">Profession</label>
+               <input type="text" name="profession" class="form-control" required="" id="prof"  onBlur="prof_validation();">
+               <span id="prf"></span><br> 
+
+              <label class="heading">Qualification</label>
+              <select name="quali" class="form-control" required="">
+                   <option value="10th">10th Pass</option>
+                   <option value="12th">12th Pass</option>
+                   <option value="Graduate">Graduate</option>
+                   <option value="PG">Post Graduate</option>
+                   <option value="M.phil">M.phil</option>
+                   <option value="P.hd">P.hd</option>
+               </select>
+               <br>
+
+               <!--Religion-->
+               <label class="heading">Religion</label>
+               
+               <select name="rel" class="form-control" required="">
+                {% for i in relobjs %}
+                   <option value="{{i.religioame}}">{{i.religioame}}</option>
+                {% endfor %} 
+               </select>
+
+               <!--motherTongue!-->
+                <label class="heading">Mother Tongue</label>
+               
+               <select name="mtongue" class="form-control" required="">
+                {% for i in mt %}
+                   <option value="{{i.mothertongue}}">{{i.mothertongue}}</option>
+                {% endfor %} 
+               </select>
+
+                <!--City name!-->
+                <label class="heading">City Name</label>
+               
+               <select name="city" class="form-control" required="">
+                {% for i in ciobjs %}
+                   <option value="{{i.cityname}}">{{i.cityname}}</option>
+                {% endfor %} 
+               </select>
+
+               <!--district!-->
+               <span id="dis"></span><br>
+               <label class="heading mt-auto">District</label>
+               <input type="text" placeholder="District" name="dist" class="mt-3" required="" id="dist" onBlur="dist_validation();">
+               
+
+               <!--pin code!-->
+              <label class="heading mt-auto ml-4">Pin Code</label>
+              <input type="text" placeholder="Pin Code" name="pin" required="" id="pin"
+              onBlur="pin_validation();">
+
+               <!--Hobbies!-->
+              <br>
+               <label class="heading">Hobbies</label>
+               <input type="text" name="hob" class="form-control" required="" id="hob">
+               <input type="submit" value="Add Details" name="" class="mt-4 mb-4 btn" data-toggle="modal" data-target="#exampleModalCenter">
+           </form>
+                
+            </div>
+            
+        
+    	
+    </div>
+</div>
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>!-->
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+      {% if messages %}
+        {% for i in messages %}
+          <p>{{i}}</p>
+        {% endfor %}
+      {% endif %}
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="{% static 'userdata.js' %}"></script> 
+</body>
+</html>

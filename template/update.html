@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+<style type="text/css">
+  .card-img-top
+  {
+    width: 200px;
+    height: 200px;
+  }
+
+  .updatebtn
+    {
+      color:white;
+      background-color: crimson;
+      padding:10px 10px;
+      margin:10px;
+      border:none;
+
+
+
+    }
+
+    .updatebtn:hover
+    {
+      text-decoration: none;
+      color: white;
+      background-color:#9B59B6;
+    }
+    h4
+    {
+      color: white;
+    }
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+             <h4>&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/app01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			
+           
+			<li  class="menu"><a href="/app01/myprofile/"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> </li>
+      
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    	 <div class="row">
+            <div class="col-md-8 offset-md-2">
+               <h3>Family & other details</h3>
+              <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {% for i in udata %}
+              
+                <img class="card-img-top" src="{{ i.pic.url }}" alt="">
+                <br>
+                <label class="heading">Father's Name</label>
+                <input type="text" name="faname" value="{{i.faname}}" placeholder="Father's Name" class="form-control">
+
+                <label class="heading">Mother's Name</label>
+                <input type="text" name="mname" value="{{i.mname}}" placeholder="Mother's Name" class="form-control">
+               <label class="heading">Gender</label> 
+              <input type="text" name="gender" value="{{i.gender}}" class="form-control">
+              <br>
+               <label class="heading">Marital Status</label>
+               <select name="mstatus" class="form-control">
+                   <option value="Never Married">Never Married</option>
+                   <option value="Divorced">Divorced</option>
+                   <option value="widow">Widow</option>
+               </select>
+               <!---Height-!-->
+              <label class="heading">Height (in Feet)</label>
+               <input type="text" name="height" value="{{i.height}}" class="form-control">
+               <label class="heading">Profession</label>
+               <input type="text" name="profession" value="{{i.profession}}" class="form-control">
+                <label class="heading">Qualification</label>
+               <select name="quali" class="form-control">
+                   <option value="10th">10th Pass</option>
+                   <option value="12th">12th Pass</option>
+                   <option value="Graduate">Graduate</option>
+                   <option value="PG">Post Graduate</option>
+                   <option value="M.phil">M.phil</option>
+                   <option value="P.hd">P.hd</option>
+               </select>
+               <br>
+
+               <!--Religion-->
+               <label class="heading">Religion</label>
+               
+               <input type="text" value="{{i.religion}}" name="rel" class="form-control">
+
+               <!--motherTongue!-->
+                <label class="heading">Mother Tongue</label>
+               
+               <input type="text" value="{{i.mothertongue}}" name="mtongue" class="form-control">
+
+                <!--City name!-->
+                <label class="heading">City Name</label>
+               
+               <input type="text" name="city" value="{{i.cityname}}" class="form-control">
+
+               <!--district!-->
+               <label class="heading mt-auto">District</label>
+               <input type="text" placeholder="District" name="dist" value="{{i.dist}}" class="mt-3" class="form-control">
+                <label class="heading mt-auto ml-4">Pin Code</label>
+               <input type="text" placeholder="Pin Code" name="pin" value="{{i.pin}}">
+
+               <!--Hobbies!-->
+              <br>
+               <label class="heading">Hobbies</label>
+               <input type="text" name="hob" class="form-control" value="{{i.hobbies}}">
+              <input type="submit" name="" class="updatebtn">
+           </form>
+           
+            {% endfor %}    
+            </div>
+            
+        
+    	
+    </div>
+</div>
+
+       
+</body>
+</html>

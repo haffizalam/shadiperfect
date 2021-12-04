@@ -1,0 +1,436 @@
+/*********logo*********/
+		
+h3
+  {
+    
+      text-align: center;
+      letter-spacing:1px;
+      color:#6495ED;
+      background:linear-gradient(90deg,yellow,#26FA05);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+  }
+/**************NavBar*****************/
+  .navbar
+		{
+		    background-image: linear-gradient(to left,crimson,#884EA0,crimson);
+			font-size: 22px;
+			color:black;
+			font-family: all;
+			position:sticky;
+			top:0px;
+
+		}
+ .menu
+        {
+    	font-size: 20px;
+    	text-decoration: italic;
+    	margin-left: 12px;
+    	margin-right: 12px;
+    	color:white;
+    	transition: 0.6s;
+
+
+        }
+
+ .menu:hover
+ {
+ 	text-decoration: none;
+ 	color:white;
+ 	border:1px solid white;
+ 	padding: 0 4px;
+ }
+ .menu a
+ {
+ 	text-decoration: none;
+ 	color: white;
+ }
+ 
+ 
+
+ 
+ /**************section one*****************/
+.home{
+	display: flex;
+	height: 100vh;
+	min-height:300px;
+	
+
+}
+
+
+.home .max-width
+{
+margin:auto 0 auto 0px;
+}
+
+
+
+
+.clock
+{
+	width: 140px;
+	height:40px;
+	background-image: linear-gradient(to left,#12c2e9,#c471ed,#f64f59);
+	font-size: 24px;
+	text-align: center;
+	margin-left: 50px;
+	color: white;
+	border-radius:5px;
+	box-shadow: 0px 10px 30px 0px rgb(0,0,0,0.1);
+
+}
+
+.sec2
+{
+	display: flex;
+	
+	
+	background-color:white;
+	
+
+}
+
+
+.container
+{
+	margin-top:40px;
+}
+.red
+{
+	
+	width:350px;
+	height:200px;
+	align-items: center;
+
+}
+.blue
+{
+	color: white;
+	width:350px;
+	height:200px;
+}
+.blue p
+{
+	align-items:center;
+	font-size:15px;
+	border:1px solid #00B4DB;
+
+}
+.profilepic
+{
+	margin-left: 50px;
+	box-shadow: 2px 10px 30px 0px rgb(0,0,0,0.1);
+	border-radius: 5px;
+	border:2px solid #00B4DB;
+
+
+}
+.service
+{
+	display: flex;
+	height:45rem;
+  	background-color:#FDEDEC ;
+
+}
+
+.row
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top:40px;
+	
+	
+}
+.board
+{
+	width: 180px;
+	height: 50px;
+	margin-left: 20px;
+	align-items: center;
+	
+	animation: anim 2s infinite alternate;
+
+
+	
+}
+.proimg
+{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	align-items: center;
+}
+.h1
+{
+	color: #E74C3C;
+	text-align: center;
+}
+
+@keyframes anim{
+	from{transform:rotate(60deg);}
+	to{transform:rotate(-60deg)}
+}
+.board h2
+{
+	color: white;
+	border:1px solid white;
+	border-radius: 10px;
+	transition: 3s;
+	
+}
+
+.board h2:hover
+{
+	color:black;
+	border:1px solid black;
+	background-color: white;
+
+
+}
+
+.slider
+{
+	max-width: 1100px;
+	display: flex;
+}
+.slider .card
+{
+	background-color: red;
+	
+	margin:0 10px;
+	background-color: #fff;
+	width: 250px;
+}
+.slider .card .img{
+	height:200px;
+	width:250px;
+}
+.slider .card .img img
+{
+	height:200px;
+	width:200px;
+	object-fit: cover;
+}
+.slider .card .content
+{
+	padding:10px 20px;
+}
+.card .content .titles
+{
+	font-size: 25px;
+	font-weight: 600;
+}
+.card .content .sub-title
+{
+	font-size: 20px;
+	font-weight: 600;
+	color: crimson;
+	line-height:20px;
+}
+
+
+
+#form {
+    display: block;
+    margin-bottom: 185px;
+    margin-top:75px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px 0px rgb(0,0,0,0.1);
+
+}
+
+.login-form {}
+
+.signup-form {}
+
+.login-form h2,
+.signup-form h2 {
+    color:#EC7063;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    
+}
+
+.login-form form input,
+.signup-form form input {
+    background: #F0F0E9;
+    border: medium none;
+    color: #696763;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    height: 40px;
+    margin-bottom: 10px;
+    outline: medium none;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.login-form form span {
+    line-height: 25px;
+}
+
+.login-form form span input {
+    width: 15px;
+    float: left;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.login-form form button {
+    margin-top: 23px;
+}
+
+.login-form form button,
+.signup-form form button {
+    background:#E74C3C;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    padding: 6px 25px;
+}
+
+.login-form label {}
+
+.login-form label input {
+    border: medium none;
+    display: inline-block;
+    height: 0;
+    margin-bottom: 0;
+    outline: medium none;
+    padding-left: 0;
+}
+
+
+.or {
+    background:#9B59B6;
+    border-radius: 40px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 75px;
+    text-align: center;
+    width: 50px;
+}
+
+.about
+{
+    background-color: #F7F9F9;
+	box-shadow: 0px 10px 30px 0px rgb(0,0,0,0.1);
+	justify-content: center;
+}
+.contact
+{
+	background-color: white;
+}
+.form-control:focus,
+.form-control:hover {
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+    border-color:#E74C3C;
+}
+.contact h2
+{
+	color:#9B59B6;
+	border-bottom:2px solid #E74c3c;
+}
+.contact h5
+{
+	color:#9B59B6;
+	border-bottom:2px solid #E74c3c;
+}
+.contact .btn
+{
+	background-color:#E74C3C; 
+}
+.contact address p
+{
+	font-size:18px;
+}
+.social {
+    overflow: hidden;
+    text-align: center;
+}
+
+.contact .social ul
+{
+	display: inline-block;
+}
+.contact .social ul li
+
+{
+	float: left;
+	text-decoration: none;
+	list-style: none;
+	margin-right: 20px;
+}
+.social ul li a {
+    color: #999;
+    font-size:50px;
+}
+.social .fa-facebook:hover
+{
+	color:#4267B2;
+}
+.social .fa-instagram:hover
+{	color: #5543ca;
+	background-image: linear-gradient(to left,#8a3ab9, #4c68d7);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+}
+.social .fa-twitter:hover
+{
+	color:#1DA1F2;
+}
+.social .fa-youtube:hover
+{
+	color:#FF0000;
+}
+.social .fa-google-plus:hover
+{
+	color:#db4a39;
+}
+
+.submitbtn
+{
+	background-color: yellow;
+}
+.footer
+{
+	background-color:#34495E;
+}
+
+.footer ul li
+{
+	list-style: none;
+	font-size:15px;
+	color: #BFC9CA;
+
+}
+.footer ul li:hover
+{
+	color:#E74C3C;
+	cursor: pointer;
+}
+
+
+.footer ul li h5
+{
+	color:#E74C3C;
+	
+
+}
+.footer ul li h5:hover
+{
+	text-decoration:underline;
+}
+

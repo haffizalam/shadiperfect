@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+
+
+</head>
+<style type="text/css">
+ 
+  h4
+  {
+    color: white;
+  }
+   .col-md-8
+   {
+    box-shadow: 0px 10px 30px 0px black;
+   }
+  .col-md-4
+  {
+    box-shadow: 1px 2px 2px 1px black;
+  }
+  .col-md-4 img
+  {
+    border-radius: 40%;
+    border:1px solid crimson;
+  }
+  .list-group-item
+  {
+    color:#AF7AC5;
+    font-size:18px;
+    border:none;
+  }
+  .list-group-item:hover
+  {
+    color:#EC7063;
+    text-decoration: none;
+    border:2px solid #AF7AC5;
+  }
+  .btn:focus,
+  .btn:hover
+  {
+    border:1px solid crimson;
+  }
+  .search
+  {
+    border:none;
+    width: 200px;
+    height: 30px;
+    
+  }
+  .search:hover,
+  .search:focus
+  {
+    outline: none;
+  }
+  .searchbtn
+  {
+    margin-right:20px;
+    background-color: crimson;
+    border:1px solid white;
+    color:white;
+  }
+
+  .bottom
+  {
+    float:right;
+    margin-right: 20px;
+    background-color:crimson;
+    border-radius:50%;
+
+    animation: uparrow 1s infinite alternate;
+
+  }
+
+  @keyframes uparrow {
+    to{margin-top:100px;}
+    from{margin-top:20px;}
+  }
+   .bottom i
+   {
+    color:#F0F3F4;
+    font-size: 34px;
+
+   }
+</style>
+
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.Com</h3>
+             <h4 class="ml-4">&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+      <li> <form method="Post" action="/app01/search1/">
+          {% csrf_token %}
+        <input type="text" name="search" class="search" placeholder="Search here..."><input type="submit" value="search" name="" class="searchbtn">
+        </form></li>
+
+			<li class="menu"><a href="/app01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li  class="menu"><a href="/app01/myprofile/"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> </li>
+
+			
+			
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          {% for i in profile %}
+          <img src="{{i.pic.url}}" class="ml-5 mt-4" width="100px" height="100px"><br>
+          {% endfor %}
+          <h5 class="ml-4">{{request.user.first_name}}  {{request.user.last_name}}</h5>
+          <div class="dropdown ml-4">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Account
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Change Password</a>
+        <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModalCenter2">Deactive Account</a>
+        
+        </div>
+        </div>
+
+          <h6 class="my-4">Search by category</h6>
+          <div class="list-group sticky-top mt-5">
+            {% for i in relobjs%}
+          <a href="{% url 'app01:cat_search' name=i.religioame %}" class="list-group-item">{{i.religioame}}</a>
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="card mb-3 mt-3">
+            {% for i in m %}
+              <a href="#"><img class="card-img-top" src="{{ i.pic.url }}" alt="" height="300px" width="200px"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{i.First_name}} {{i.Last_name}}</a>
+                </h4>
+                <h5>{{i.cityname}}</h5>
+                <p class="card-text">{{i.mstatus}}</p>
+                <p class="card-text"><i class="fa fa-graduation-cap" aria-hidden="true"></i>{{i.qualification}}</p>
+                <p>{{i.age}}Yrs.</p>
+              </div>
+              <div class="card-footer mb-3">
+                <small class="text-muted"></small>
+                <a href="{% url 'app01:show' id=i.user_id%}" data-target="#myModal">View Profile</a>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+          <a href="/app01/home/"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          <form method="Post" action="/app01/chnge_passwd/">
+            {% csrf_token %}
+          <input type="password" name="pwd" class="form-control" placeholder="Old Password">
+          <input type="password" name="npw" class="form-control" placeholder="New Password">
+          <input type="submit" name="" value="Change Password" data-toggle="modal" data-target="#exampleModalCenter1">
+          </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!--pop up msg! password changed-->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        {% if messages %}
+          {% for i in messages %}
+          <p>{{i}}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+      
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--modal deactivate account!-->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Deactivate your account.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        Are you sure want to deactivate your account?
+      </div>
+      
+      <div class="modal-footer">
+        <a href="/app01/deactivate/" class="btn btn-success">Yes</a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+     
+</body>
+</html>

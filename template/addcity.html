@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+<style type="text/css">
+    h4
+    {
+        color:white;
+    }
+    .updatebtn
+    {
+      color:white;
+      background-color: crimson;
+      padding:10px 10px;
+      margin:10px;
+      border:none;
+    }
+
+    .updatebtn:hover
+    {
+        background-color: #AF7AC5;
+    }
+
+</style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.Com</h3>
+             <h4>&nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{request.user.first_name}}  {{request.user.last_name}}</h4>
+             
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="/admin01/home/" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			
+           
+			<li class="menu"><a href="/admin01/religion/" ><i class="fa fa-users" aria-hidden="true"></i>Edit Religion</a></li>
+			<li class="menu"><a href="/admin01/city/" ><i class="fa fa-users" aria-hidden="true"></i>Edit City</a></li>
+			<li class="menu"><a href="/admin01/lang/" ><i class="fa fa-users" aria-hidden="true"></i>Edit Mother Tongue</a></li>
+			
+			<li class="menu"><a href="/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </li>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-6">
+    			<form method="Post">
+    				{% csrf_token %}
+    				<label>City Name</label>
+    				<input type="text" name="cit" class="form-control">
+    				<input type="submit" value="Add" name="" class="updatebtn">
+    			</form>
+            </div>
+                <div class="col-md-6">
+                <table class="table hover" >
+                    <tr>
+                    <th>S.no</th>
+                    <th>Religion</th>
+                    
+                    <th>Delete data</th>
+                    </tr>
+                    {% for i in ciobjs %}
+                    <tr>
+                        
+                        <td>{{i.id}}</td>
+                        <td>{{i.cityname}}</td>
+                        
+                        <td><a href="{% url 'admin01:del_rel' id=i.id %}" class="updatebtn">Delete</a></td>
+                        
+                        
+                    </tr>
+                    {% endfor %}
+
+                    
+                </table>
+            </div>
+    		
+    	</div>
+    	
+    </div>
+
+       
+</body>
+</html>

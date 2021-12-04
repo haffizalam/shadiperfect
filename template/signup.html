@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Matrimonials</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'ps.css' %}">
+
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+		
+             <h3>PerfectShadi.com</h3>
+		 
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menubar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menubar">
+		<ul class="navbar-nav ml-auto">
+			<li class="menu"><a href="#home" ><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+			<li  class="menu"><a href="#about"><i class="fa fa-info-circle" aria-hidden="true"></i>About</a> </li>
+			<li class="menu"><a href="#service" ><i class="fa fa-shopping-basket" aria-hidden="true"></i>Service</a> </li>
+			
+			<li class="menu"><a href="#team" ><i class="fa fa-unlock-alt" aria-hidden="true"></i>Login</a> </li>
+			<li class="menu"><a href="#contact" ><i class="fa fa-phone-square" aria-hidden="true"></i>Contact us</a> </li>
+        </ul>
+        </div>
+    </nav>
+
+        <section id="form"><!--form-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+          <div class="login-form"><!--login form-->
+            <h2>Login to your account</h2>
+            <form action="#">
+              <input type="text" placeholder="Username" />
+              <input type="email" placeholder="Password" />
+              <span>
+                <input type="checkbox" class="checkbox"> 
+                Keep me signed in
+              </span>
+              <button type="submit" class="btn btn-default">Login</button>
+            </form>
+          </div><!--/login form-->
+        </div>
+        <div class="col-sm-1">
+          <h2 class="or">OR</h2>
+        </div>
+        <div class="col-sm-4">
+          <div class="signup-form"><!--sign up form-->
+            <h2>New User Signup!</h2>
+            <form method="Post">
+              {% csrf_token %}
+              <input type="text" placeholder="First Name" name="fname" />
+              <input type="text" placeholder="Last Name" name="lname" />
+              <input type="text" placeholder="Userame" name="uname" />
+              <label>Date of Birth</label><input type="date" placeholder="Date of Birth" name="dob" />
+              <input type="email" placeholder="Email Address" name="email" />
+              <input type="text" placeholder="Mobile Number" name="mobile" />
+              <input type="password" placeholder="Password" name="pwd" />
+              <label>Usertype</label>
+              <select name="utype" class="form-control">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+              
+              
+              <button type="submit" class="btn btn-default">Signup</button>
+            </form>
+          </div><!--/sign up form-->
+        </div>
+      </div>
+    </div>
+  </section><!--/form-->
+</body>
+</html>
